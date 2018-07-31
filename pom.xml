@@ -55,17 +55,6 @@
 			<version>3.14.0.7</version>
 		</dependency>
 
-
-		<!-- Kafka Streams API is the only dependency you need for building Streams 
-			applications. The only other thing is the specific Machine Learning dependencies 
-			for the models you want to build and / or deploy -->
-		<dependency>
-			<groupId>org.apache.kafka</groupId>
-			<artifactId>kafka-streams</artifactId>
-			<version>${kafka.version}</version>
-		</dependency>
-
-
 	</dependencies>
 	<build>
 		<plugins>
