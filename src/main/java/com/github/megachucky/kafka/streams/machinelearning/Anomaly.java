@@ -24,24 +24,11 @@ public class Anomaly {
 	  private static String modelClassName = "io.confluent.ksql.function.udf.ml"
 	                                         + ".DeepLearning_model_R_1509973865970_1";	
 	
-
   @Udf(description = "apply analytic model to sensor input")
-  public Object anomaly(Object sensorinput) {
+  public String anomaly(String sensorinput) {
 	  
-	  
-//	    if (args.length != 1) {
-//	        throw new KsqlFunctionException("Anomaly udf should have one input argument.");
-//	      }
-//	      try {
-//	        return applyAnalyticModel(args[0]);
-//
-//	      } catch (Exception e) {
-//	        throw new KsqlFunctionException("Model Inference failed. Please check the logs.");
-//	      }
-//	    }
-	  
-	  
-    
+	  System.out.println("Kai: DL-UDF starting");
+	     
 	  GenModel rawModel;
 	    try {
 			rawModel = (hex.genmodel.GenModel) Class.forName(modelClassName).newInstance();
@@ -49,8 +36,7 @@ public class Anomaly {
 	    EasyPredictModelWrapper model = new EasyPredictModelWrapper(rawModel);
 	    
 	    // Prepare input sensor data to be in correct data format for the autoencoder model (double[]):
-		String inputWithHash = (String) sensorinput;
-		String[] inputStringArray = inputWithHash.split("#");
+		String[] inputStringArray = sensorinput.split("#");
 		double[] doubleValues = Arrays.stream(inputStringArray)
 	            .mapToDouble(Double::parseDouble)
 	            .toArray();
@@ -73,18 +59,17 @@ public class Anomaly {
 	    }
 	    // Calculate Mean Square Error => High reconstruction error means anomaly
 	    double mse = sum / p.original.length;
-	    // System.out.println("MSE: " + mse);
+	    System.out.println("MSE: " + mse);
 
 	    String mseString = "" + mse;
 
 	    return (mseString);
 	    
 	    } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	    	System.out.println(e.toString());
+			
 		} catch (PredictException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.toString());
 		}
 	    
 	    return null;
