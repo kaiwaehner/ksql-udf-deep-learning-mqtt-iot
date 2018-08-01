@@ -36,7 +36,7 @@ confluent.topic.replication.factor=1
 
 [source,bash]
 ----
-bin/kafka-mqtt-start kafka-mqtt-quickstart.properties
+kafka-mqtt-start kafka-mqtt-quickstart.properties
 brew services start mosquitto
 ----
 
