@@ -18,10 +18,10 @@ Set ksql.extension.dir in ksql-server.properties like ksql.extension.dir=/Users/
 
 [source,bash]
 ----
-cd /Users/kai.waehner/confluent-5.0.0
-bin/kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic temperature
-vi kafka-mqtt-quickstart.properties
 confluent start ksql-server
+kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic temperature
+vi kafka-mqtt-quickstart.properties
+
 ----
 
 Configuration of kafka-mqtt-quickstart.properties
