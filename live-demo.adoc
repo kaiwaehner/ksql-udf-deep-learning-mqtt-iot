@@ -24,10 +24,14 @@ vi kafka-mqtt-quickstart.properties
 ----
 
 Configuration of kafka-mqtt-quickstart.properties
+
+[source,bash]
+----
 topic.regex.list=temperature:.*temperature
 listeners=0.0.0.0:1883
 bootstrap.servers=PLAINTEXT://localhost:9092
 confluent.topic.replication.factor=1
+----
 
 [source,bash]
 ----
