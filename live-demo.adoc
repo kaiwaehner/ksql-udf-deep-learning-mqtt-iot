@@ -16,6 +16,8 @@ Set ksql.extension.dir in ksql-server.properties like ksql.extension.dir=/Users/
 
 == Starting services and configuration
 
+Make sure to have Confluent folder on PATH. Otherwise, go to CONFLUENT_INSTALL/bin to execute commands like 'confluent start ksql-server'.
+
 [source,bash]
 ----
 confluent start ksql-server
