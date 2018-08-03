@@ -26,11 +26,11 @@ It is pretty easy to develop UDFs. Just implement the function in one Java metho
 ### Requirements
 - Java 8
 - [Confluent Platform](https://www.confluent.io/download/) (Confluent Enterprise if you want to use the Confluent MQTT Proxy, Confluent Open Source if you just want to run the KSQL UDF and send data via kafkacat instead of MQTT)
-- MQTT Client (I use [Mosquitto](https://mosquitto.org/download/) in the demo)
+- MQTT Client (I use [Mosquitto](https://mosquitto.org/download/) in the demo as MQTT Client - I don't start the server!)
 - [kafkacat](https://github.com/edenhill/kafkacat) (optional - if you do not want to use MQTT Producers, and of course you can also use kafka-console-producer instead, but kafkacat is much more comfortable)
 
 ### Step-by-step demo
-[Install Confluent Platform](https://www.confluent.io/download/) and then follow these steps to [deploy the UDF, create MQTT events and process them via KSQL leveraging the analytic model](https://github.com/kaiwaehner/ksql-udf-deep-learning-mqtt-iot/blob/master/live-demo.adoc).
+[Install Confluent Platform](https://www.confluent.io/download/) and [Mosquitto](https://mosquitto.org/download/) (or any other MQTT Client). Then follow these steps to [deploy the UDF, create MQTT events and process them via KSQL leveraging the analytic model](https://github.com/kaiwaehner/ksql-udf-deep-learning-mqtt-iot/blob/master/live-demo.adoc).
 
 
 
