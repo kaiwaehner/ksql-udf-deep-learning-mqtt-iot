@@ -39,13 +39,19 @@ confluent.topic.replication.factor=1
 [source,bash]
 ----
 kafka-mqtt-start kafka-mqtt-quickstart.properties
-brew services start mosquitto
 ----
 
 == KSQL and Predictions
 
 Start KSQL CLI:
+
+[source,bash]
+----
 ksql http://localhost:8088
+----
+
+You don't need to start the MQTT Broker (in this example the Moquitto server)! You just use Moquitto later to produce MQTT messages via 'mosquitto_pub' command.
+If you (want to) start Moquitto server), you might get a port issue with MQTT Proxy, in that case change the default port of Mosquitto server.
 
 [source,bash]
 ----
