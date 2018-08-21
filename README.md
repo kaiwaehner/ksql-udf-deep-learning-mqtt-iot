@@ -1,7 +1,8 @@
 # Deep Learning UDF for KSQL for Streaming Anomaly Detection of MQTT IoT Sensor Data
 
 I built a KSQL UDF for sensor analytics. It leverages the new [API features of KSQL to build UDF / UDAF functions easily with Java](https://docs.confluent.io/current/ksql/docs/udf.html) to do continuous stream processing on incoming events.
-
+If you want to build your own UDF, please check out this blog post for a detailed "how to" and potential issues during development and testing: [How to Build a UDF and/or UDAF in KSQL 5.0](https://www.confluent.io/blog/build-udf-udaf-ksql-5-0).
+ 
 ## Use Case: Connected Cars - Real Time Streaming Analytics using Deep Learning
 Continuously process millions of events from connected devices (sensors of cars in this example):
 ![](pictures/Connected_Cars_IoT_Deep_Learning.png)
