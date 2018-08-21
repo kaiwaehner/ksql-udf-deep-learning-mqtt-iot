@@ -24,14 +24,14 @@ arrLen=0
 msgNr=0
 
 #MQTT Client command
-PUBEXE="/usr/local/Cellar/mosquitto/1.4.14_2/bin/mosquitto_pub"
+PUBEXE="mosquitto_pub"
 HOST="0.0.0.0" 
 PORT=1883
 TOPIC="car/engine/temperature"
 QOS=2
 
 #Set log level for the script
-LOGLEVEL=$DEBUG
+LOGLEVEL=$INFO
 
 log()
 { # This function will log the input message to STDOUT if the log level for the message is lower or equal to the log level set for the script
