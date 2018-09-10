@@ -30,7 +30,7 @@ It is pretty easy to develop UDFs. Just implement the function in one Java metho
 - [kafkacat](https://github.com/edenhill/kafkacat) (optional - if you do not want to use MQTT Producers, and of course you can also use kafka-console-producer instead, but kafkacat is much more comfortable)
 
 ### Step-by-step demo
-[Install Confluent Platform](https://www.confluent.io/download/) and [Mosquitto](https://mosquitto.org/download/) (or any other MQTT Client). Then follow these steps to [deploy the UDF, create MQTT events and process them via KSQL leveraging the analytic model](https://github.com/kaiwaehner/ksql-udf-deep-learning-mqtt-iot/blob/master/live-demo.adoc).
+[Install Confluent Platform](https://www.confluent.io/download/) and [Mosquitto](https://mosquitto.org/download/) (or any other MQTT Client). Then follow these steps to [deploy the UDF, create MQTT events and process them via KSQL leveraging the analytic model](https://github.com/kaiwaehner/ksql-udf-deep-learning-mqtt-iot/blob/master/live-demo-ksql-udf-deep-learning-mqtt-iot.adoc).
 
 ## Other Projects related to Kafka and MQTT
 If you want to see the other part (integration with sink applications like Elasticsearch / Grafana), please take a look at the project "[KSQL for streaming IoT data](https://github.com/kaiwaehner/ksql-fork-with-deep-learning-function)", which shows how to realize the integration with ElasticSearch via Kafka Connect.
