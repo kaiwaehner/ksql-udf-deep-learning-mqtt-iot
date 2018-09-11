@@ -24,6 +24,8 @@ It is pretty easy to develop UDFs. Just implement the function in one Java metho
 ## How to run it?
 
 ### Requirements
+The code is developed and tested on Mac and Linux operating systems. As Kafka does not support and work well on Windows, this is not tested at all.
+
 - Java 8
 - [Confluent Platform 5.0+](https://www.confluent.io/download/) (Confluent Enterprise if you want to use the Confluent MQTT Proxy, Confluent Open Source if you just want to run the KSQL UDF and send data via kafkacat instead of MQTT)
 - MQTT Client (I use [Mosquitto](https://mosquitto.org/download/) in the demo as MQTT Client to publish MQTT messages - I don't even start the MQTT server! Thus, you can also use any other MQTT Client instead.)
