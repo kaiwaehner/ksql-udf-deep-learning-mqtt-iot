@@ -186,8 +186,9 @@ $ kafka-console-consumer --bootstrap-server localhost:9092 --topic ANOMALYDETECT
 
 == Stop services and destroy test data
 
+Stop MQTT Proxy and kafka-console-consumer with CTRL-C. Then destroy your Kafka environment to be able to start from scratch next time:
+
 [source,bash]
 ----
-brew services stop mosquitto
 confluent destroy
 ----
