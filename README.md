@@ -11,6 +11,11 @@ Continuously process millions of events from connected devices (sensors of cars 
 This project focuses on the ingestion of data into Kafka via MQTT and processing of data via KSQL:
 ![](pictures/MQTT_Proxy_Confluent_Cloud.png)
 
+## Live Demo Video - MQTT with Kafka Connect and MQTT Proxy
+If you want to see Apache Kafka / MQTT integration in a video, please check out the following 15min recording showing a demo my two Github examples:
+
+[![Apache Kafka + MQTT Integration](pictures/MQTT_Apache_Kafka_Integration_Confluent_Proxy_Connect.png)](https://www.youtube.com/watch?v=L38-6ilGeKE)
+
 ## Source Code
 Here is the full source code for the [Anomaly Detection KSQL UDF](https://github.com/kaiwaehner/ksql-udf-deep-learning-mqtt-iot/blob/master/src/main/java/com/github/megachucky/kafka/streams/machinelearning/Anomaly.java).
 
