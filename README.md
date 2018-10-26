@@ -37,7 +37,7 @@ The code is developed and tested on Mac and Linux operating systems. As Kafka do
 - [kafkacat](https://github.com/edenhill/kafkacat) (optional - if you do not want to use MQTT Producers, and of course you can also use kafka-console-producer instead, but kafkacat is much more comfortable)
 
 ### Step-by-step demo
-[Install Confluent Platform](https://www.confluent.io/download/) and [Mosquitto](https://mosquitto.org/download/) (or any other MQTT Client). Then follow these steps to [deploy the UDF, create MQTT events and process them via KSQL leveraging the analytic model](https://github.com/kaiwaehner/ksql-udf-deep-learning-mqtt-iot/blob/master/live-demo-ksql-udf-deep-learning-mqtt-iot.adoc).
+[Install Confluent Platform](https://www.confluent.io/download/) and [Mosquitto](https://mosquitto.org/download/) (or any other MQTT Client). Then follow these steps to [deploy the UDF, create MQTT events and process them via KSQL leveraging the analytic model](https://github.com/kaiwaehner/ksql-udf-deep-learning-mqtt-iot/blob/master/live-demo-ksql-udf-deep-learning-mqtt-iot.adoc). The video recording is available on the website of Kafka Summit for free: [Kafka MQTT Integration - Video Recording](https://www.confluent.io/kafka-summit-sf18/processing-iot-data-from-end-to-end).
 
 ## Other Projects related to Kafka and MQTT
 If you want to find more details about Kafka + MQTT integration, take a look at my slides from Kafka Summit 2018 in San Francisco: [IoT Integration with MQTT and Apache Kafka](https://www.slideshare.net/KaiWaehner/iot-integration-with-mqtt-and-apache-kafka).
