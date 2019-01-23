@@ -165,7 +165,6 @@ Now you have a KSQL Stream showing breaches where you can create a new `SELECT` 
 [source,sql]
 ----
 ksql> SELECT * FROM ANOMALYDETECTIONWITHFILTER;
-Format:STRING
 21/08/18 12:36:09 BST , car/engine/temperature , 99999,4.193955593608823
 Ctrl-C
 ----
@@ -175,7 +174,6 @@ You also have a Kafka topic, of which you can see the contents using KSQL's `PRI
 [source,sql]
 ----
 ksql> PRINT ANOMALYDETECTIONWITHFILTER FROM BEGINNING;
-Format:STRING
 21/08/18 12:36:09 BST , car/engine/temperature , 99999,4.193955593608823
 21/08/18 12:36:12 BST , car/engine/temperature , 99999,5.363750640274894
 21/08/18 12:36:20 BST , car/engine/temperature , 99999,7.292092517069437
