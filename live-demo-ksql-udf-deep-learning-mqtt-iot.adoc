@@ -157,10 +157,20 @@ From this new stream, create a derived stream that will include only events brea
 CREATE STREAM ANOMALYDETECTIONWITHFILTER AS \
 SELECT EVENTID, ANOMALY_VAL \
 FROM   ANOMALYDETECTION \
-WHERE  ANOMALY_VAL > 4;
+WHERE  ANOMALY_VAL > 3;
 ----
 
-Now you have a KSQL Stream showing breaches, but also a Kafka topic, of which you can see the contents using KSQL's `PRINT` command: 
+Now you have a KSQL Stream showing breaches where you can create a new `SELECT` query or `CREATE STREAM`:
+
+[source,sql]
+----
+ksql> SELECT * FROM ANOMALYDETECTIONWITHFILTER;
+Format:STRING
+21/08/18 12:36:09 BST , car/engine/temperature , 99999,4.193955593608823
+Ctrl-C
+----
+
+You also have a Kafka topic, of which you can see the contents using KSQL's `PRINT` command: 
 
 [source,sql]
 ----
