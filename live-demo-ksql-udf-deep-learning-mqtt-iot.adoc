@@ -1,7 +1,7 @@
 = Kafka / KSQL / MQTT/ Deep Learning Live Demo
 
 Kai Waehner <kontakt@kai-waehner.de>
-31 Jul 2018
+23 Jul 2019
 
 == Deployment of UDF
 
@@ -10,33 +10,35 @@ Kai Waehner <kontakt@kai-waehner.de>
 mvn clean package
 ----
 
-Copy `ksql-udf-deep-learning-mqtt-iot-1.0-jar-with-dependencies.jar` from the `target` folder to the `ext` folder of your KSQL installation (you will need to create the `ext` folder). 
+Copy `ksql-udf-deep-learning-mqtt-iot-2.0-jar-with-dependencies.jar` from the `target` folder to the `ext` folder of your KSQL installation (you will need to create the `ext` folder). 
 
-So if your Confluent Platform installation is at `/Users/kai.waehner/confluent-5.0.0` then copy the JAR to `/Users/kai.waehner/confluent-5.0.0/etc/ksql/ext`
+So if your Confluent Platform installation is at `/Users/kai.waehner/confluent-5.3.0` then copy the JAR to `/Users/kai.waehner/confluent-5.3.0/etc/ksql/ext`
 
 Set `ksql.extension.dir` in `etc/ksql/ksql-server.properties`: 
 
 [source,bash]
 ----
-ksql.extension.dir=/Users/kai.waehner/confluent-5.0.0/etc/ksql/ext
+ksql.extension.dir=/Users/kai.waehner/confluent-5.3.0/etc/ksql/ext
 ----
 
 == Starting services and configuration
 
 _Make sure to have Confluent folder on PATH. Otherwise, go to `$CONFLUENT_INSTALL/bin` to execute commands these commands._
 
-Start the KSQL server and dependencies (Kafka, Zookeeper, Schema Registry): 
+Start the KSQL server and dependencies (Kafka, Zookeeper, Schema Registry).
+
+Please note that Confluent CLI changed with Confluent Platform 5.3+: 'confluent local start' Confluent Platform 5.2 and earlier: 'confluent start'. This guide uses Confluent Platform 5.3.
 
 [source,bash]
 ----
-confluent start ksql-server
+confluent local start ksql-server
 ----
 
 Create a topic for sensor reading: 
 
 [source,bash]
 ----
-kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic temperature
+kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic temperature
 ----
 
 Now configure the MQTT proxy, by creating a file called `kafka-mqtt-quickstart.properties`: 
@@ -198,5 +200,5 @@ Stop MQTT Proxy and kafka-console-consumer with CTRL-C. Then destroy your Kafka 
 
 [source,bash]
 ----
-confluent destroy
+confluent local destroy
 ----
