@@ -9,23 +9,22 @@ import hex.genmodel.easy.exception.PredictException;
 import hex.genmodel.easy.prediction.AutoEncoderModelPrediction;
 import io.confluent.ksql.function.udf.Udf;
 import io.confluent.ksql.function.udf.UdfDescription;
-
+import io.confluent.ksql.function.udf.UdfParameter;
 
 @UdfDescription(name = "anomaly", description = "anomaly detection using deep learning")
 public class Anomaly {
-	
-	
-	// Model built with H2O R API:
-	  // anomaly_model <- h2o.deeplearning(x = names(train_ecg),training_frame =
-	  // train_ecg,activation = "Tanh",autoencoder = TRUE,hidden =
-	  // c(50,20,50),sparse = TRUE,l1 = 1e-4,epochs = 100)
 
-	  // Name of the generated H2O model
-	  private static String modelClassName = "io.confluent.ksql.function.udf.ml"
-	                                         + ".DeepLearning_model_R_1509973865970_1";	
-	
-  @Udf(description = "apply analytic model to sensor input")
-  public String anomaly(String sensorinput) {
+	// Model built with H2O R API:
+	// anomaly_model <- h2o.deeplearning(x = names(train_ecg),training_frame =
+	// train_ecg,activation = "Tanh",autoencoder = TRUE,hidden =
+	// c(50,20,50),sparse = TRUE,l1 = 1e-4,epochs = 100)
+
+	// Name of the generated H2O model
+	private static String modelClassName = "io.confluent.ksql.function.udf.ml"
+			+ ".DeepLearning_model_R_1509973865970_1";
+
+	@Udf(description = "apply analytic model to sensor input")
+	public String anomaly(@UdfParameter("sensorinput") String sensorinput) {
 	  
 	  System.out.println("Kai: DL-UDF starting");
 	     
