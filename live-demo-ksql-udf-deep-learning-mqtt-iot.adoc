@@ -1,7 +1,7 @@
 = Kafka / KSQL / MQTT/ Deep Learning Live Demo
 
 Kai Waehner <kontakt@kai-waehner.de>
-23 Jul 2019
+22 Apr 2020
 
 == Deployment of UDF
 
@@ -12,13 +12,13 @@ mvn clean package
 
 Copy `ksql-udf-deep-learning-mqtt-iot-2.0-jar-with-dependencies.jar` from the `target` folder to the `ext` folder of your KSQL installation (you will need to create the `ext` folder). 
 
-So if your Confluent Platform installation is at `/Users/kai.waehner/confluent-5.3.0` then copy the JAR to `/Users/kai.waehner/confluent-5.3.0/etc/ksql/ext`
+So if your Confluent Platform installation is at `/Users/kai.waehner/confluent-5.4.0` then copy the JAR to `/Users/kai.waehner/confluent-5.4.0/etc/ksql/ext`
 
 Set `ksql.extension.dir` in `etc/ksql/ksql-server.properties`: 
 
 [source,bash]
 ----
-ksql.extension.dir=/Users/kai.waehner/confluent-5.3.0/etc/ksql/ext
+ksql.extension.dir=/Users/kai.waehner/confluent-5.4.0/etc/ksql/ext
 ----
 
 == Starting services and configuration
@@ -27,7 +27,8 @@ _Make sure to have Confluent folder on PATH. Otherwise, go to `$CONFLUENT_INSTAL
 
 Start the KSQL server and dependencies (Kafka, Zookeeper, Schema Registry).
 
-Please note that Confluent CLI changed with Confluent Platform 5.3+: 'confluent local start' Confluent Platform 5.2 and earlier: 'confluent start'. This guide uses Confluent Platform 5.3.
+Please note that Confluent CLI changed with Confluent Platform 5.3+: 'confluent local start' Confluent Platform 5.2 and earlier: 'confluent start'. This guide uses Confluent Platform 5.4.
+Older versions than Confluent Platform 5.4 might not be compatible as the KSQL / ksqlDB changed slightly.
 
 [source,bash]
 ----
@@ -96,7 +97,7 @@ Set a continuous query running in KSQL:
 
 [source,sql]
 ----
-SELECT EVENTID, ANOMALY(SENSORINPUT) FROM CARSENSOR;
+SELECT EVENTID, ANOMALY(SENSORINPUT) FROM CARSENSOR EMIT CHANGES;
 ----
 
 Send a sample message to the Kafka topic, from a separate shell prompt (i.e. not KSQL): 
@@ -110,7 +111,7 @@ In KSQL you should see the message displayed with the UDF output:
 
 [source,sql]
 ----
-ksql> SELECT EVENTID, ANOMALY(SENSORINPUT) FROM CARSENSOR;
+ksql> SELECT EVENTID, ANOMALY(SENSORINPUT) FROM CARSENSOR  EMIT CHANGES;
 99999 | 1.2104138026620321
 ----
 
@@ -166,7 +167,7 @@ Now you have a KSQL Stream showing breaches where you can create a new `SELECT` 
 
 [source,sql]
 ----
-ksql> SELECT * FROM ANOMALYDETECTIONWITHFILTER;
+ksql> SELECT * FROM ANOMALYDETECTIONWITHFILTER EMIT CHANGES;
 21/08/18 12:36:09 BST , car/engine/temperature , 99999,4.193955593608823
 Ctrl-C
 ----
